@@ -1,0 +1,20 @@
+﻿nodejs文件夹为加密参数，因为py执行js真的麻烦
+
+
+1.运行node服务器执行加密参数
+
+cd nodejs
+npm install
+node main
+
+2.安装python库，并测试
+
+pip install flask
+python main.py
+
+3.执行测试(vip视频需要cookie，此处并解析登录cookie)
+
+http://localhost/?url=爱奇艺视频链接
+
+
+4. core.py里面的src参数， src='01010031010000000000' 改成mac和ipad可直接观看vip视频，但是视频链接不稳定，需要迅雷下载或者断点续传类的播放器播放

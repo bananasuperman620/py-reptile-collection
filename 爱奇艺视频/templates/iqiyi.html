@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+
+    <script>
+ 
+            </script>
+        
+    <script>
+       
+    /*
+    if (isStrict) {
+        window.cmd5x = cmd5x;
+        window.cmd5ly = cmd5ly;
+        window.cmd5xly = cmd5xly;
+        window.cmd5xtmts = cmd5xtmts;
+        window.cmd5xlive = cmd5xlive;
+        window.cmd5xvms = cmd5xvms
+    }
+    */
+    
+    </script>
+    
+    <script>
+        function get_qc005() {
+            var userAgent = '';
+            return new Crypt()._a(userAgent +  Math.random() + (new Date).getTime());
+        }
+
+
+    </script>
+    <script>
+        var urlEncode = function (param, key, encode) {  
+        if(param==null) return '';  
+        var paramStr = '';  
+        var t = typeof (param);  
+        if (t == 'string' || t == 'number' || t == 'boolean') {  
+            paramStr += '&' + key + '=' + ((encode==null||encode) ? encodeURIComponent(param) : param);  
+        } else {  
+            for (var i in param) {  
+            var k = key == null ? i : key + (param instanceof Array ? '[' + i + ']' : '.' + i);  
+            paramStr += urlEncode(param[i], k, encode);  
+            }  
+        }  
+        return paramStr;  
+        };  
+    </script>
+    <script>
+        /*
+        var crypt = new Crypt();
+        console.log(crypt.o([],0));
+        console.log(crypt._a(""));
+        
+        console.log(get_qc005())
+        */
+        console.log(cmd5x('14857789'));
+        var tvid = "{{ tvid }}";
+        var vid = "{{ vid }}";
+        var uid = '{{ uid}}';
+        //var k_uid = get_qc005();
+        var k_uid = '84d7a23ff52c3cbb0abcedfb189cc5da';
+
+        var tm = new Date().getTime();
+        var crypt = new Crypt();
+        //var authKey = crypt._a(crypt._a("") + tm + tvid);
+        var authKey = '4a1caba4b4465345366f28da7c117d20';
+        var pck = "";
+        var dfp = "";
+
+        /*
+        100: {
+            nbid: 100,
+            value: "极速",
+            qipu: "jisu",
+            obid: 96
+        },
+        200: {
+            nbid: 200,
+            value: "流畅",
+            qipu: "300",
+            obid: 1
+        },
+        300: {
+            nbid: 300,
+            value: "高清",
+            qipu: "600",
+            obid: 2
+        },
+        400: {
+            nbid: 400,
+            value: "超清",
+            qipu: "1000",
+            obid: 3
+        },
+        500: {
+            nbid: 500,
+            value: "720P",
+            qipu: "720P",
+            obid: 4
+        },
+        600: {
+            nbid: 600,
+            value: "1080P",
+            qipu: "1080P",
+            obid: 5
+        },
+        700: {
+            nbid: 700,
+            value: "2K",
+            qipu: "2K",
+            obid: 6
+        },
+        800: {
+            nbid: 800,
+            value: "4K",
+            qipu: "4K",
+            obid: 10
+        },
+        */
+        
+        var query = {
+            tvid:tvid,
+            bid:600,
+            vid,
+            src: '01010031010000000000',
+            vt:0,
+            rs:1,
+            uid: uid,
+            ori: 'pcw',
+            ps: 0,
+            tm,
+            qd_v:1,
+            k_uid,
+            pt:0,
+            d:0,
+            s:'',
+            lid:'',
+            cf:'',
+            ct:'',
+            authKey,
+            k_tag:1,
+            ppt:0,
+            dfp,
+            locale:'zh_cn',
+            prio: encodeURI('{"ff": "flv", "code": "2"}'),
+            pck,
+            k_err_retries:0,
+            ut:1,
+            bop: encodeURI('{"version": "7.0","dfp": "' + dfp +'"}'),
+            callback:'Qc556570ac81f604e78ccdf9b78a21a02',
+        };
+
+        var query_args = urlEncode(query);
+        query_args = '/jp/dash?' + query_args.slice(1, query_args.length);
+
+        var vf = cmd5x(query_args);
+        query_args += '&vf=' + vf;
+
+        function get_filename(path) {
+            var regex = /\/(\w+)\.\w+/g;
+            return path.match(regex)[0].match(/\w+/)[0];
+        }
+        
+ 
+        
+        var url = '/play';
+        $.post(url, 
+            {
+                query_args, 
+                tvid,
+            },
+            function(rep) {
+                eval(rep);
+            }
+        );
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
